@@ -5,16 +5,21 @@ import java.awt.event.MouseListener;
 import javax.swing.JButton;
 
 @SuppressWarnings("serial")
-public class Button extends JButton// implements MouseListener
+public class Button extends JButton implements MouseListener
 {
+	 int indexInt;
+	 String kante;
 	public Button()
 	{
-		//addMouseListener(this);
-		//this.addActionListener(e ->{System.out.println(Integer.valueOf(e.getActionCommand()));
-		//});
+		addMouseListener(this);
+		addActionListener(e ->{    
+		JButton button = (JButton)e.getSource();
+        String indexString = button.getText();
+        indexInt = Integer.parseInt(indexString);
+        System.out.println("Index : "+indexInt);
+	});
 	}
 
-/*
 	@Override
 	public void mouseClicked(MouseEvent clickE) 
 	{
@@ -22,24 +27,29 @@ public class Button extends JButton// implements MouseListener
 		//System.out.println(" Y: " + clickE.getY());
 		if(clickE.getX() < 20 && clickE.getY() > 20 && clickE.getY() < 72)
 		{
-			System.out.println("Linke Kante");
+			kante = "Linke Kante";
+			System.out.println(kante);
 			this.setBackground(Color.RED);
 			
 			//View.changeStatus(this);
 		}
 		else if(clickE.getX() > 20 && clickE.getX() < 79 && clickE.getY() < 20)
 		{
-			System.out.println("Obere Kante");
+			kante = "Obere Kante";
+			System.out.println(kante);
+			
 			this.setBackground(Color.BLUE);
 		}
 		else if(clickE.getX() > 76 && clickE.getY() > 20 && clickE.getY() < 62)
 		{
-			System.out.println("Rechte Kante");
+			kante = "Rechte Kante";
+			System.out.println(kante);
 			this.setBackground(Color.GREEN);
 		}
 		else if(clickE.getX() > 20 && clickE.getX() < 79 && clickE.getY() > 72)
 		{
-			System.out.println("Untere Kante");
+			kante = "Untere Kante";
+			System.out.println(kante);
 			this.setBackground(Color.YELLOW);
 		}
 	}
@@ -67,7 +77,16 @@ public class Button extends JButton// implements MouseListener
 	public void mouseReleased(MouseEvent e) {
 		// TODO Auto-generated method stub
 		
-	}*/
+	}
 	
+	public int getIndex()
+	{
+		return indexInt;
+	}
+	
+	public String getKante()
+	{
+		return kante;
+	}
 	
 }

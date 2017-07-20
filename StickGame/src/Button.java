@@ -5,16 +5,22 @@ import java.awt.event.MouseListener;
 import javax.swing.JButton;
 
 @SuppressWarnings("serial")
-public class Button extends JButton// implements MouseListener
+public class Button extends JButton implements MouseListener
 {
+	int indexInt;
+	 String kante;
 	public Button()
 	{
-		//addMouseListener(this);
-		//this.addActionListener(e ->{System.out.println(Integer.valueOf(e.getActionCommand()));
-		//});
+		addMouseListener(this);
+		addActionListener(e ->{    
+		JButton button = (JButton)e.getSource();
+        String indexString = button.getText();
+        indexInt = Integer.parseInt(indexString);
+        System.out.println("Index : "+indexInt);
+	});
 	}
 
-/*
+
 	@Override
 	public void mouseClicked(MouseEvent clickE) 
 	{
@@ -67,7 +73,18 @@ public class Button extends JButton// implements MouseListener
 	public void mouseReleased(MouseEvent e) {
 		// TODO Auto-generated method stub
 		
-	}*/
+	}
+	
+
+	public int getIndex()
+	{
+		return indexInt;
+	}
+	
+	public String getKante()
+	{
+		return kante;
+	}
 	
 	
 }

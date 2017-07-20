@@ -22,9 +22,8 @@ public class View extends JFrame
 		for(int i = 0; i < buttons.length; i++)
 		{
 			buttons[i] = new Button();
-			buttons[i].addActionListener(e ->{
-				System.out.println(Integer.valueOf(e.getActionCommand()));
-				});
+			buttons[i].setText(Integer.toString(i));
+			buttons[i].setForeground(new Color(255, 255, 255, 0));
 			if(disabledButtons[index] == i)
 			{
 				//System.out.println("ouafhgsoüuaf");

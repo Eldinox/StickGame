@@ -22,23 +22,20 @@ public class View extends JFrame
 		for(int i = 0; i < buttons.length; i++)
 		{
 			buttons[i] = new Button();
-			buttons[i].setText(Integer.toString(i));
-			buttons[i].setForeground(new Color(255, 255, 255, 0));
-		  
-			/*buttons[i].addActionListener(e ->{
-				System.out.println(e.getSource());
-				});*/
+			buttons[i].addActionListener(e ->{
+				System.out.println(Integer.valueOf(e.getActionCommand()));
+				});
 			if(disabledButtons[index] == i)
 			{
 				//System.out.println("ouafhgsoüuaf");
 				buttons[i].setEnabled(false);
-				buttons[i].setForeground(new Color(0, 0, 0, 0));
 				buttons[i].setBackground(Color.BLACK);
-				
+				buttons[i].setForeground(Color.BLACK);
 				index++;
 			}
 			panel.add(buttons[i]);
 		}
+		
 		
 		
 		frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
